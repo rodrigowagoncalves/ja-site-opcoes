@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>JA Brand — Opções de site</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400;500&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--verde:#8CC63F;--limao:#B6EE75;--mono:"Kode Mono",monospace;--sans:"Poppins",sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#000;color:#fff;font-family:var(--sans);min-height:100vh;padding:48px clamp(16px,5vw,72px)}
+header{display:flex;align-items:center;gap:14px}
+header .ic{width:30px;color:var(--verde)}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#8a8a8a}
+h1{margin-top:8vh;font-size:clamp(34px,5vw,72px);letter-spacing:-.035em;line-height:1;font-weight:600;max-width:900px}
+p.intro{margin-top:18px;color:#bdbdbd;max-width:560px;line-height:1.6}
+.grade{margin-top:7vh;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:24px}
+a.op{display:block;border:1px solid #262626;padding:28px;text-decoration:none;color:inherit;transition:border-color .3s,transform .3s}
+a.op:hover{border-color:var(--limao);transform:translateY(-3px)}
+a.op .n{font-family:var(--mono);color:var(--limao);font-size:13px}
+a.op h2{margin-top:10px;font-size:32px;letter-spacing:-.02em}
+a.op p{margin-top:10px;color:#bdbdbd;line-height:1.6}
+a.op ul{margin-top:16px;list-style:none;color:#9a9a9a;font-size:14px;line-height:1.9}
+a.op ul li::before{content:"→ ";color:var(--verde)}
+a.op .ir{margin-top:22px;display:inline-block;background:var(--limao);color:#121212;padding:11px 16px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+footer{margin-top:8vh}
+</style>
+</head>
+<body>
+<header><div class="ic" id="ic"></div><span class="mono">JA Brand // site novo // para validar</span></header>
+<h1>Duas direções para o site da JA.</h1>
+<p class="intro">As duas seguem o brandbook (Verde JA, Verde Limão, preto, KodeMono + Poppins) e mostram trabalhos reais da agência. Abra no computador e role devagar — a página reage à rolagem.</p>
+<div class="grade">
+  <a class="op" href="opcao-1-galeria.html">
+    <span class="n">Opção 1</span>
+    <h2>Galeria</h2>
+    <p>Editorial e clara, como uma exposição. O letreiro 3D da JA abre o site e a câmera entra pela janela do "A".</p>
+    <ul><li>Zoom pelo letreiro ao rolar</li><li>O ícone JA vira janela para uma foto</li><li>Trabalhos em quadros que deslizam na horizontal</li></ul>
+    <span class="ir">Ver opção 1</span>
+  </a>
+  <a class="op" href="opcao-2-cinema.html">
+    <span class="n">Opção 2</span>
+    <h2>Cinema</h2>
+    <p>Escura e cinematográfica, mais perto do reel. O ícone JA em 3D gira e acompanha cada frente; um VT da Liga anda conforme a rolagem.</p>
+    <ul><li>Ícone 3D de verdade, com luz de estúdio</li><li>Vídeo controlado pela rolagem</li><li>No fim, a câmera atravessa o ícone</li></ul>
+    <span class="ir">Ver opção 2</span>
+  </a>
+</div>
+<footer class="mono">Rascunho para aprovação — textos, fotos e contatos ainda podem mudar.</footer>
+<script src="marca/marca.js"></script>
+<script>document.getElementById('ic').innerHTML=window.JA_ICONE;document.querySelector('#ic svg').style.cssText='width:100%;height:auto;display:block'</script>
+</body>
+</html>

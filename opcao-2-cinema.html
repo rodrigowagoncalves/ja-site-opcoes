@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>JA Brand — Cinema</title>
+<meta name="description" content="JA Brand: design, branding, publicidade online e offline, eventos e sites.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --verde:#8CC63F; --limao:#B6EE75; --preto:#000; --preto-abs:#121212; --grafite:#262626;
+  --cinza-tec:#64748B; --linha:#E2E8F0; --gelo:#F8FAFC;
+  --mono:"Kode Mono",ui-monospace,monospace; --sans:"Poppins",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:#000}
+body{font-family:var(--sans);color:#fff;background:#000;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.mono{font-family:var(--mono);letter-spacing:.08em;text-transform:uppercase;font-size:12px}
+.limao{color:var(--limao)}
+
+#cena{position:fixed;inset:0;z-index:0;pointer-events:none}
+#cena canvas{display:block;width:100%;height:100%}
+#vinheta{position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(120% 90% at 50% 45%,transparent 45%,rgba(0,0,0,.85))}
+#grao{position:fixed;inset:-50%;z-index:2;pointer-events:none;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");animation:grao 1s steps(4) infinite}
+@keyframes grao{0%{transform:translate(0,0)}25%{transform:translate(-3%,2%)}50%{transform:translate(2%,-3%)}75%{transform:translate(-2%,-1%)}100%{transform:translate(0,0)}}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:22px clamp(16px,4vw,48px)}
+header .logo{width:30px;color:var(--verde)}
+header nav{display:flex;gap:28px;color:#bdbdbd}
+header nav a:hover{color:#fff}
+.cta{display:inline-flex;align-items:center;gap:10px;background:var(--limao);color:var(--preto-abs);padding:12px 18px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.cta:hover{transform:translateY(-2px)}
+.so-desk{display:flex}
+@media (max-width:820px){.so-desk{display:none}}
+
+main{position:relative;z-index:3}
+.cap{min-height:100vh;display:grid;align-content:center;padding:14vh clamp(16px,6vw,96px);position:relative}
+
+/* hero */
+.hero{min-height:200vh;align-content:start;padding-top:0}
+.hero .fix{position:sticky;top:0;height:100vh;display:grid;align-content:end;padding-bottom:12vh}
+.hero h1{font-family:var(--mono);font-weight:500;text-transform:uppercase;font-size:clamp(30px,5.4vw,84px);line-height:1.02;letter-spacing:-.01em;max-width:1100px}
+.hero h1 .l{display:block;overflow:hidden}
+.hero h1 .l > span{display:block}
+.hero .linha{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-top:34px;flex-wrap:wrap}
+.hero .linha p{max-width:440px;color:#b9b9b9;line-height:1.6}
+.hero .topo{position:absolute;top:96px;left:0;color:#8a8a8a}
+
+/* frentes */
+.frente{min-height:140vh;align-content:center}
+.frente .bloco{max-width:520px;position:relative}
+.frente.dir .bloco{margin-left:auto}
+.frente .n{font-family:var(--mono);color:var(--limao);font-size:13px}
+.frente h2{margin-top:14px;font-size:clamp(40px,6vw,96px);line-height:.95;letter-spacing:-.04em;font-weight:600}
+.frente p{margin-top:20px;color:#bdbdbd;line-height:1.65;font-size:16px}
+.frente .res{margin-top:22px;padding-left:14px;border-left:2px solid var(--verde);font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#e9e9e9}
+.frente .cartas{position:absolute;top:50%;width:min(36vw,460px);aspect-ratio:4/5;transform:translateY(-50%);perspective:1200px}
+.frente:not(.dir) .cartas{right:clamp(16px,8vw,140px)}
+.frente.dir .cartas{left:clamp(16px,8vw,140px)}
+.carta{position:absolute;inset:0;overflow:hidden;background:#111;box-shadow:0 40px 80px rgba(0,0,0,.6);transform-style:preserve-3d;will-change:transform}
+.carta img{width:100%;height:100%;object-fit:cover}
+.carta figcaption{position:absolute;left:0;right:0;bottom:0;padding:14px 16px;background:linear-gradient(transparent,rgba(0,0,0,.85));font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+@media (max-width:900px){
+  .frente .cartas{position:relative;top:auto;left:auto!important;right:auto!important;transform:none;width:100%;margin-top:40px}
+  .frente.dir .bloco{margin-left:0}
+}
+
+/* filme (scroll-scrub) */
+.filme{height:300vh;position:relative}
+.filme .fix{position:sticky;top:0;height:100vh;overflow:hidden;display:grid;place-items:center}
+.filme video,.filme canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.filme .sobre{position:relative;z-index:2;text-align:center;padding:0 16px}
+.filme .sobre h2{font-size:clamp(34px,5vw,80px);letter-spacing:-.04em;font-weight:600;line-height:1}
+.filme .sobre .mono{color:var(--limao)}
+.filme .esc{position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.2) 40%,rgba(0,0,0,.7))}
+
+/* trabalhos */
+.trabalhos{background:#000;padding:18vh clamp(16px,6vw,96px);position:relative;z-index:3}
+.trabalhos .cab{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
+.trabalhos h2{font-size:clamp(40px,6vw,96px);letter-spacing:-.04em;line-height:.95;font-weight:600}
+.filtros{display:flex;gap:8px;flex-wrap:wrap}
+.filtros button{background:transparent;border:1px solid #333;color:#bdbdbd;padding:9px 14px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .25s}
+.filtros button.on,.filtros button:hover{background:var(--limao);border-color:var(--limao);color:#121212}
+.grade{margin-top:8vh;columns:3 320px;column-gap:18px}
+.peca{break-inside:avoid;margin-bottom:18px;position:relative;overflow:hidden;cursor:zoom-in;background:#111}
+.peca img{width:100%;height:auto;transition:transform 1s cubic-bezier(.2,.8,.2,1),filter .6s}
+.peca:hover img{transform:scale(1.05);filter:saturate(1.15)}
+.peca .info{position:absolute;inset:auto 0 0 0;padding:16px;display:flex;justify-content:space-between;gap:12px;background:linear-gradient(transparent,rgba(0,0,0,.85));opacity:0;transform:translateY(10px);transition:all .4s}
+.peca:hover .info{opacity:1;transform:none}
+.peca .info b{font-weight:500}
+.peca .info span{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--limao);white-space:nowrap}
+.peca.some{display:none}
+#caixa{position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:90;display:none;place-items:center;padding:4vh 4vw;cursor:zoom-out}
+#caixa.on{display:grid}
+#caixa img{max-height:84vh;width:auto;max-width:100%}
+#caixa p{margin-top:14px;color:#bdbdbd;text-align:center}
+
+/* portal + chamada */
+.portal{height:220vh;position:relative;z-index:3}
+.chamada{background:var(--limao);color:var(--preto-abs);min-height:100vh;display:grid;align-content:center;padding:14vh clamp(16px,6vw,96px);position:relative;z-index:3;overflow:hidden}
+.chamada h2{font-family:var(--mono);text-transform:uppercase;font-weight:500;font-size:clamp(34px,6vw,100px);line-height:.98;letter-spacing:-.02em;max-width:1100px}
+.chamada p{margin-top:26px;max-width:460px;line-height:1.6}
+.chamada .acoes{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap}
+.chamada .cta{background:var(--preto-abs);color:#fff}
+.chamada .cta.sec{background:transparent;color:var(--preto-abs);outline:1px solid var(--preto-abs)}
+.chamada .ic-fundo{position:absolute;right:5vw;top:56%;width:min(28vw,380px);transform:translateY(-50%);color:#fff}@media (max-width:820px){.chamada .ic-fundo{opacity:.35;right:-10vw;width:60vw}}
+footer{position:relative;z-index:3;background:#000;color:#8a8a8a;padding:48px clamp(16px,6vw,96px);display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+footer .assin{width:120px;color:var(--verde)}
+footer .mono{font-size:11px}
+
+#intro{position:fixed;inset:0;background:#000;z-index:100;display:grid;place-items:center;font-family:var(--mono);color:#8a8a8a}
+#intro b{color:var(--limao);font-weight:500}
+</style>
+</head>
+<body>
+
+<div id="intro"><span>JA BRAND // CARREGANDO <b id="pct">00</b>%</span></div>
+<div id="cena"></div>
+<div id="vinheta"></div>
+<div id="grao"></div>
+
+<header>
+  <a href="#" class="logo" data-marca="icone" aria-label="JA Brand"></a>
+  <nav class="so-desk mono">
+    <a href="#frentes">Frentes</a>
+    <a href="#trabalhos">Trabalhos</a>
+    <a href="#contato">Contato</a>
+  </nav>
+  <a href="#contato" class="cta">Vamos conversar →</a>
+</header>
+
+<main>
+  <section class="cap hero" id="topo">
+    <div class="fix">
+      <span class="topo mono">JA Brand // Design · Branding · Publicidade online & off · Eventos · Sites</span>
+      <h1><span class="l"><span>Marcas relevantes</span></span><span class="l"><span>habitam todos os</span></span><span class="l"><span>pontos de <span class="limao">contato.</span></span></span></h1>
+      <div class="linha">
+        <p>Um único parceiro criativo e técnico para o seu site, suas redes, seus impressos e seus eventos.</p>
+        <span class="mono" style="color:#8a8a8a">Role para entrar ↓</span>
+      </div>
+    </div>
+  </section>
+
+  <div id="frentes"></div>
+
+  <section class="filme" id="filme" hidden>
+    <div class="fix">
+      <video id="video" muted playsinline preload="auto"></video>
+      <div class="esc"></div>
+      <div class="sobre"><span class="mono" id="filme-rotulo">Liga Brasileira de Padel · VT para TV</span><h2 id="filme-titulo">Do roteiro<br>à transmissão.</h2></div>
+    </div>
+  </section>
+
+  <section class="trabalhos" id="trabalhos">
+    <div class="cab">
+      <div><span class="mono" style="color:#8a8a8a">Portfólio</span><h2>Trabalhos<br>que já estão na rua.</h2></div>
+      <div class="filtros" id="filtros"></div>
+    </div>
+    <div class="grade" id="grade"></div>
+  </section>
+
+  <section class="portal" id="portal"></section>
+
+  <section class="chamada" id="contato">
+    <div class="ic-fundo" data-marca="icone"></div>
+    <span class="mono">Próximo projeto</span>
+    <h2>Sua marca em todos os pontos de contato.</h2>
+    <p>Conta o que você precisa — identidade, campanha, evento ou site. A gente responde com um caminho claro e prazo.</p>
+    <div class="acoes">
+      <a class="cta" href="https://wa.me/" target="_blank" rel="noopener">Chamar no WhatsApp →</a>
+      <a class="cta sec" href="mailto:contato.jabrand@gmail.com">contato.jabrand@gmail.com</a>
+    </div>
+  </section>
+  <footer>
+    <div class="assin" data-marca="assinatura"></div>
+    <span class="mono">Design · Branding · Publicidade online & off · Eventos · Sites</span>
+    <span class="mono">© 2026 JA Brand</span>
+  </footer>
+</main>
+
+<div id="caixa"><div><img alt=""><p></p></div></div>
+
+<script src="marca/marca.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="dados.js"></script>
+<script type="importmap">
+{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { SVGLoader } from 'three/addons/loaders/SVGLoader.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+document.querySelectorAll('[data-marca="icone"]').forEach(el=>el.innerHTML=window.JA_ICONE);
+document.querySelectorAll('[data-marca="assinatura"]').forEach(el=>el.innerHTML=window.JA_ASSINATURA);
+document.querySelectorAll('[data-marca] svg').forEach(s=>{s.style.width='100%';s.style.height='auto';s.style.display='block'});
+
+const reduz = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const D = await window.carregarPortfolio();
+
+// ---------- capítulos das frentes ----------
+const porFrente = {};
+D.trabalhos.forEach(t => (porFrente[t.frente] ||= []).push(t));
+const fr = document.getElementById('frentes');
+D.frentes.forEach((f,i)=>{
+  const fotos = (porFrente[f.chave] || []).slice(0,3);
+  if(!fotos.length) fotos.push({arquivo:f.imagem, cliente:'JA Brand', frente:f.chave, descricao:f.titulo});
+  const s=document.createElement('section'); s.className='cap frente'+(i%2?' dir':''); s.dataset.i=i;
+  s.innerHTML=`<div class="bloco"><span class="n">0${i+1} // ${f.chave}</span><h2>${f.titulo}</h2><p>${f.escopo}</p><div class="res">${f.resultado}</div></div>
+  <div class="cartas">${fotos.map((p,k)=>`<figure class="carta" data-k="${k}"><img src="${p.arquivo}" alt="${p.descricao}" loading="lazy"><figcaption>${p.cliente}</figcaption></figure>`).join('')}</div>`;
+  fr.appendChild(s);
+});
+
+// ---------- grade de trabalhos ----------
+const grade=document.getElementById('grade');
+D.trabalhos.forEach(t=>{
+  const el=document.createElement('figure'); el.className='peca'; el.dataset.frente=t.frente;
+  el.innerHTML=`<img src="${t.arquivo}" alt="${t.descricao}" loading="lazy"><div class="info"><b>${t.cliente}</b><span>${t.frente}</span></div>`;
+  el.addEventListener('click',()=>{const c=document.getElementById('caixa');c.querySelector('img').src=t.arquivo;c.querySelector('p').textContent=`${t.cliente} — ${t.descricao}`;c.classList.add('on')});
+  grade.appendChild(el);
+});
+document.getElementById('caixa').addEventListener('click',e=>e.currentTarget.classList.remove('on'));
+const filtros=document.getElementById('filtros');
+['Todos',...new Set(D.trabalhos.map(t=>t.frente))].forEach((n,i)=>{
+  const b=document.createElement('button'); b.textContent=n; if(!i)b.className='on';
+  b.onclick=()=>{filtros.querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+    grade.querySelectorAll('.peca').forEach(p=>p.classList.toggle('some',n!=='Todos'&&p.dataset.frente!==n));ScrollTrigger.refresh()};
+  filtros.appendChild(b);
+});
+
+// ---------- filme (só aparece se assets/filme.mp4 existir) ----------
+const video=document.getElementById('video');
+let temFilme=false;
+try{ const r=await fetch('assets/filme.mp4',{method:'HEAD'}); temFilme=r.ok; }catch(e){}
+if(temFilme){ document.getElementById('filme').hidden=false; video.src='assets/filme.mp4'; }
+
+// ---------- 3D ----------
+const box=document.getElementById('cena');
+const renderer=new THREE.WebGLRenderer({antialias:true,alpha:false,powerPreference:'high-performance'});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+renderer.setSize(innerWidth,innerHeight);
+renderer.toneMapping=THREE.ACESFilmicToneMapping; renderer.toneMappingExposure=.9;
+renderer.outputColorSpace=THREE.SRGBColorSpace;
+box.appendChild(renderer.domElement);
+const scene=new THREE.Scene(); scene.background=new THREE.Color(0x000000);
+scene.fog=new THREE.Fog(0x000000,9,22);
+const camera=new THREE.PerspectiveCamera(32,innerWidth/innerHeight,.1,100); camera.position.set(0,0,10);
+const pmrem=new THREE.PMREMGenerator(renderer);
+scene.environment=pmrem.fromScene(new RoomEnvironment(),.04).texture;
+
+// luzes de estúdio: chave quente, recorte verde, preenchimento frio
+const chave=new THREE.SpotLight(0xfff1dc,38,30,Math.PI/7,.7,1.2); chave.position.set(-4,6,6); scene.add(chave);
+const recorte=new THREE.PointLight(0xB6EE75,26,20,1.6); recorte.position.set(4,1,-3); scene.add(recorte);
+const frio=new THREE.PointLight(0x64748B,12,20,1.5); frio.position.set(-5,-3,2); scene.add(frio);
+scene.add(new THREE.AmbientLight(0xffffff,.08));
+
+// chão escuro com brilho do verde
+const chao=new THREE.Mesh(new THREE.PlaneGeometry(60,60),new THREE.MeshStandardMaterial({color:0x050505,roughness:.35,metalness:.2}));
+chao.rotation.x=-Math.PI/2; chao.position.y=-2.4; scene.add(chao);
+
+// o ícone JA extrudado a partir do SVG do brandbook
+const data=new SVGLoader().parse(window.JA_ICONE);
+const formas=[]; data.paths.forEach(p=>SVGLoader.createShapes(p).forEach(s=>formas.push(s)));
+const geo=new THREE.ExtrudeGeometry(formas,{depth:90,bevelEnabled:true,bevelThickness:10,bevelSize:6,bevelSegments:6,curveSegments:24});
+geo.computeBoundingBox(); const bb=geo.boundingBox; const c=new THREE.Vector3(); bb.getCenter(c); geo.translate(-c.x,-c.y,-c.z);
+const altura=bb.max.y-bb.min.y;
+const mat=new THREE.MeshPhysicalMaterial({color:0x6FB12A,roughness:.28,metalness:0,clearcoat:1,clearcoatRoughness:.06,envMapIntensity:.7});
+const icone=new THREE.Mesh(geo,mat);
+const s=3.2/altura; icone.scale.set(s,-s,s); // SVG tem y para baixo
+const piv=new THREE.Group(); piv.add(icone); scene.add(piv);
+
+// sombra suave falsa no chão
+const somb=new THREE.Mesh(new THREE.CircleGeometry(1.8,48),new THREE.MeshBasicMaterial({color:0x8CC63F,transparent:true,opacity:.10}));
+somb.rotation.x=-Math.PI/2; somb.position.y=-2.39;
+
+// estado animável
+const E={x:0,y:.15,z:0,rx:.05,ry:-.5,rz:0,cz:10,cy:0,exp:.9,bg:0,lk:.35};
+const I={cz:8,ry:-1.9};
+const mouse={x:0,y:0}; addEventListener('pointermove',e=>{mouse.x=e.clientX/innerWidth-.5;mouse.y=e.clientY/innerHeight-.5});
+addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);posicaoLado()});
+let lado=2.6; function posicaoLado(){lado=innerWidth<900?0:Math.min(2.8,innerWidth/innerHeight*1.5)}
+posicaoLado();
+
+const verdeLimao=new THREE.Color(0xB6EE75), preto=new THREE.Color(0x000000);
+const vinheta=document.getElementById('vinheta'), grao=document.getElementById('grao');
+let t0=performance.now();
+function loop(now){
+  const t=(now-t0)/1000;
+  piv.position.set(E.x, E.y+Math.sin(t*.9)*.06*Math.min(1,E.cz/4), E.z);
+  piv.rotation.set(E.rx+mouse.y*.25, E.ry+I.ry+mouse.x*.45+(reduz?0:Math.sin(t*.35)*.08), E.rz);
+  const perto=Math.min(1,E.cz/4); camera.position.set(mouse.x*.3*perto, E.cy-mouse.y*.2*perto, E.cz+I.cz); camera.lookAt(E.x*E.lk, E.cy*.6, 0);
+  scene.background.copy(preto).lerp(verdeLimao,E.bg); scene.fog.color.copy(scene.background);
+  renderer.toneMappingExposure=E.exp;
+  chao.material.color.setHex(0x050505).lerp(verdeLimao,E.bg); chao.visible=E.bg<.98;
+  vinheta.style.opacity=1-E.bg; grao.style.display=E.bg>.5?'none':'';
+  
+  renderer.render(scene,camera);
+  requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+
+// ---------- intro ----------
+const pct=document.getElementById('pct'); const o={v:0};
+await new Promise(r=>gsap.to(o,{v:100,duration:1.1,ease:'power2.inOut',onUpdate:()=>pct.textContent=String(Math.round(o.v)).padStart(2,'0'),onComplete:r}));
+gsap.to('#intro',{opacity:0,duration:.6,onComplete:()=>document.getElementById('intro').remove()});
+gsap.to(I,{cz:0,ry:0,duration:2.4,ease:'expo.out'});
+gsap.from('.hero h1 .l > span',{yPercent:110,duration:1.2,stagger:.1,ease:'expo.out',delay:.3});
+gsap.from('.hero .linha, .hero .topo',{opacity:0,y:20,duration:1,delay:.8,stagger:.1});
+
+// ---------- rolagem ----------
+gsap.registerPlugin(ScrollTrigger);
+let lenis=null;
+if(!reduz){ lenis=new Lenis({lerp:.08}); window.__lenis=lenis; lenis.on('scroll',ScrollTrigger.update); gsap.ticker.add(x=>lenis.raf(x*1000)); gsap.ticker.lagSmoothing(0); }
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const id=a.getAttribute('href');if(id.length<2)return;e.preventDefault();lenis?lenis.scrollTo(id,{duration:1.8}):document.querySelector(id).scrollIntoView({behavior:'smooth'})}));
+
+// ---------- texto e cartas (gatilhos próprios, não mexem no 3D) ----------
+gsap.to('.hero .fix',{opacity:0,y:-80,ease:'none',scrollTrigger:{trigger:'.hero',start:'30% top',end:'bottom top',scrub:1}});
+document.querySelectorAll('.frente').forEach(sec=>{
+  const dir=sec.classList.contains('dir');
+  gsap.from(sec.querySelectorAll('.bloco > *'),{opacity:0,y:40,stagger:.08,duration:1,ease:'expo.out',scrollTrigger:{trigger:sec,start:'top 60%'}});
+  const cartas=sec.querySelectorAll('.carta');
+  cartas.forEach((ca,k)=>{
+    const dx=(k-(cartas.length-1)/2);
+    gsap.fromTo(ca,{rotateY:dir?35:-35,rotateZ:dx*8,z:-400,y:200,opacity:0},
+      {rotateY:dir?8:-8,rotateZ:dx*5,x:dx*40,y:dx*-14,z:-k*40,opacity:1,ease:'power2.out',
+       scrollTrigger:{trigger:sec,start:'top 85%',end:'center 55%',scrub:1}});
+  });
+  gsap.to(sec.querySelector('.cartas'),{yPercent:-12,ease:'none',scrollTrigger:{trigger:sec,start:'top bottom',end:'bottom top',scrub:true}});
+});
+gsap.from('.peca',{opacity:0,y:60,stagger:.06,duration:1,ease:'expo.out',scrollTrigger:{trigger:'.grade',start:'top 80%'}});
+
+// ---------- filme: rolagem controla o tempo do vídeo ----------
+if(temFilme){
+  const ir=()=>{ if(!video.duration) return;
+    const T={t:0};
+    gsap.to(T,{t:video.duration-.05,ease:'none',onUpdate:()=>{ if(Math.abs(video.currentTime-T.t)>.01) video.currentTime=T.t; },
+      scrollTrigger:{trigger:'.filme',start:'top top',end:'bottom bottom',scrub:.6}});
+    gsap.from('.filme .sobre',{opacity:0,y:40,ease:'none',scrollTrigger:{trigger:'.filme',start:'top 60%',end:'top top',scrub:true}});
+    gsap.to('.filme .sobre',{opacity:0,y:-40,ease:'none',scrollTrigger:{trigger:'.filme',start:'bottom 140%',end:'bottom bottom',scrub:true}});
+    ScrollTrigger.refresh(); };
+  video.readyState>=1?ir():video.addEventListener('loadedmetadata',ir,{once:true});
+}
+
+// ---------- 3D: UMA linha do tempo só, do topo ao fim da página ----------
+// Cada trecho é posicionado em pixels de rolagem, assim nenhuma animação briga com outra.
+const POSES=[{ry:-.7,rx:.1,rz:-.06},{ry:.8,rx:-.12,rz:.08},{ry:-1.15,rx:.3,rz:0},{ry:1.25,rx:.05,rz:-.12},{ry:-.25,rx:-.2,rz:.04}];
+const INICIO={x:innerWidth<900?0:lado*.85,y:innerWidth<900?1.1:.25,z:0,rx:.05,ry:-.5,rz:0,cz:innerWidth<900?13:10.5,cy:0,exp:.9,bg:0,lk:.35};
+let mestre=null;
+function construir(){
+  if(mestre){ mestre.scrollTrigger.kill(); mestre.kill(); }
+  Object.assign(E,INICIO);
+  const H=innerHeight, total=Math.max(1,document.documentElement.scrollHeight-H);
+  const topo=el=>el.getBoundingClientRect().top+scrollY;
+  const em=px=>Math.min(1,Math.max(0,px/total));
+  const tl=gsap.timeline({paused:true});
+  const trecho=(de,ate,vars,ease='power1.inOut')=>{const a=em(de),b=em(ate);tl.to(E,{...vars,ease,duration:Math.max(.0001,b-a)},a)};
+  const hero=document.querySelector('.hero');
+  trecho(0,hero.offsetHeight-H*.4,{ry:.9,rx:.25,cz:12.5,y:.5},'none');
+  const lado2=innerWidth<900?0:lado;
+  document.querySelectorAll('.frente').forEach((sec,i)=>{
+    const dir=sec.classList.contains('dir'), t=topo(sec);
+    trecho(t-H, t+sec.offsetHeight/2-H/2, {x:innerWidth<900?0:(dir?.25:-.25), y:innerWidth<900?6:-.15, cz:innerWidth<900?16:14.5, ...POSES[i%5]});
+  });
+  const trab=document.querySelector('.trabalhos'), tt=topo(trab);
+  trecho(tt-H, tt, {y:-6, ry:-1.2}, 'power2.in');
+  const portal=document.querySelector('.portal'), pt=topo(portal), pf=pt+portal.offsetHeight-H;
+  const seg=f=>pt-H*.2+(pf-(pt-H*.2))*f;
+  trecho(seg(0), seg(.001), {x:0,rx:0,rz:0}, 'none');
+  trecho(seg(.001), seg(.35), {y:0,ry:0,cz:9,lk:0}, 'power2.out');
+  trecho(seg(.35), seg(.55), {x:-.35,y:-.08}, 'power1.inOut');
+  trecho(seg(.5), seg(.92), {cz:.25}, 'power3.in');
+  trecho(seg(.8), seg(1), {bg:1,exp:1.4}, 'none');
+  tl.to({},{duration:Math.max(0,1-tl.duration())});
+  mestre=gsap.to(tl,{progress:1,ease:'none',scrollTrigger:{start:0,end:'max',scrub:1}});
+}
+construir();
+ScrollTrigger.addEventListener('refreshInit',()=>{ if(mestre){ mestre.scrollTrigger.kill(); mestre.kill(); mestre=null; } });
+ScrollTrigger.addEventListener('refresh',()=>{ if(!mestre) construir(); });
+
+addEventListener('load',()=>ScrollTrigger.refresh());
+</script>
+</body>
+</html>

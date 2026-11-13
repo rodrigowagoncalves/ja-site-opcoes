@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>JA Brand — Galeria</title>
+<meta name="description" content="JA Brand: design, branding, publicidade online e offline, eventos e sites. Marcas relevantes habitam todos os pontos de contato.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --verde:#8CC63F; --limao:#B6EE75; --preto:#000; --preto-abs:#121212; --branco:#fff;
+  --grafite:#262626; --cinza-tec:#64748B; --linha:#E2E8F0; --gelo:#F8FAFC; --parede:#E7E5E0;
+  --mono:"Kode Mono",ui-monospace,monospace; --sans:"Poppins",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--gelo)}
+body{font-family:var(--sans);color:var(--preto-abs);background:var(--gelo);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.mono{font-family:var(--mono);letter-spacing:.08em;text-transform:uppercase;font-size:12px}
+.verde{color:var(--verde)}
+
+/* ---------- carregando ---------- */
+#intro{position:fixed;inset:0;background:var(--preto);z-index:100;display:grid;place-items:center}
+#intro .ic{width:84px;color:var(--verde)}
+#intro .barra{position:absolute;bottom:48px;left:50%;width:160px;height:1px;background:#333;transform:translateX(-50%);overflow:hidden}
+#intro .barra i{position:absolute;inset:0;background:var(--verde);transform-origin:left;transform:scaleX(0)}
+
+/* ---------- topo ---------- */
+header{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:22px clamp(16px,4vw,48px);color:#fff;transition:color .4s,background .4s}
+header::before{content:'';position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.75),transparent);opacity:1;transition:opacity .4s;pointer-events:none;z-index:-1}
+header.claro{color:var(--preto-abs)}
+header.claro::before{opacity:0}
+header .logo{width:30px;color:inherit}
+header nav{display:flex;gap:28px}
+header nav a{opacity:.85}
+header nav a:hover{opacity:1}
+.cta{display:inline-flex;align-items:center;gap:10px;background:var(--limao);color:var(--preto-abs);padding:12px 18px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;border:0;cursor:pointer;transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.cta:hover{transform:translateY(-2px)}
+.so-desk{display:flex}
+@media (max-width:820px){.so-desk{display:none}}
+
+/* ---------- 1. letreiro ---------- */
+.letreiro{height:320vh;position:relative;background:var(--parede)}
+.letreiro .palco{position:sticky;top:0;height:100vh;overflow:hidden}
+.letreiro .foto{position:absolute;top:50%;right:4vw;height:96vh;aspect-ratio:820/1035;transform:translateY(-50%);will-change:transform}
+.letreiro .foto img{width:100%;height:100%;object-fit:cover;-webkit-mask-image:radial-gradient(ellipse 70% 72% at 55% 48%,#000 55%,transparent 100%);mask-image:radial-gradient(ellipse 70% 72% at 55% 48%,#000 55%,transparent 100%)}
+.letreiro .texto{position:absolute;left:clamp(16px,6vw,96px);bottom:12vh;max-width:min(820px,88vw);z-index:2}
+.letreiro h1{font-weight:600;font-size:clamp(36px,5.4vw,84px);line-height:.98;letter-spacing:-.035em}
+.letreiro h1 .l{display:block;overflow:hidden}
+.letreiro h1 .l span{display:block}
+.letreiro .sub{margin-top:26px;max-width:460px;font-size:16px;line-height:1.6;color:#3b3b3b}
+.letreiro .rotulo{position:absolute;left:clamp(16px,6vw,96px);top:110px}
+.letreiro .rolar{position:absolute;right:clamp(16px,4vw,48px);bottom:28px;display:flex;align-items:center;gap:10px;color:#555}
+.letreiro .rolar i{width:1px;height:42px;background:#555;display:block;animation:desce 1.8s ease-in-out infinite;transform-origin:top}
+@keyframes desce{0%{transform:scaleY(0)}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.letreiro .cortina{position:absolute;inset:0;background:var(--preto);opacity:0;pointer-events:none}
+@media (max-width:820px){
+  .letreiro .foto{right:-18vw;height:78vh;top:38%}
+  .letreiro .texto{bottom:8vh}
+  .letreiro .rotulo{display:none}
+}
+
+/* ---------- 2. manifesto ---------- */
+.manifesto{background:var(--preto);color:#fff;padding:22vh clamp(16px,6vw,96px) 26vh}
+.manifesto .mono{color:var(--cinza-tec)}
+.manifesto p.grande{margin-top:28px;font-size:clamp(30px,4.6vw,72px);line-height:1.08;letter-spacing:-.03em;font-weight:500;max-width:1180px}
+.manifesto p.grande .w{opacity:.14;transition:none}
+.manifesto p.grande .w.g{color:var(--limao)}
+.manifesto .rodape{margin-top:9vh;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;max-width:1180px;border-top:1px solid #222;padding-top:28px}
+.manifesto .rodape b{display:block;font-family:var(--mono);font-size:clamp(28px,3vw,44px);font-weight:500;color:#fff}
+.manifesto .rodape span{color:#8a8a8a;font-size:14px;line-height:1.5;display:block;margin-top:6px}
+@media (max-width:640px){.manifesto .rodape{grid-template-columns:1fr}}
+
+/* ---------- 3. máscara JA ---------- */
+.mascara{height:280vh;position:relative;background:var(--preto)}
+.mascara .palco{position:sticky;top:0;height:100vh;overflow:hidden}
+.mascara .foto{position:absolute;inset:0}
+.mascara .foto img{width:100%;height:100%;object-fit:cover}
+.mascara .foto .verdejo{position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 40%,rgba(140,198,63,.0),rgba(0,0,0,.55))}
+.mascara svg.furo{position:absolute;inset:0;width:100%;height:100%}
+.mascara .frase{position:absolute;left:clamp(16px,6vw,96px);bottom:12vh;color:#fff;max-width:620px;z-index:3;opacity:0}
+.mascara .frase h2{font-size:clamp(30px,4vw,60px);line-height:1.02;letter-spacing:-.03em;font-weight:600}
+.mascara .frase p{margin-top:16px;color:#cfcfcf;line-height:1.6;max-width:460px}
+
+/* ---------- 4. frentes ---------- */
+.frentes{background:var(--gelo);padding:18vh 0 10vh}
+.frentes .cab{padding:0 clamp(16px,6vw,96px);display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
+.frentes h2{font-size:clamp(34px,5vw,76px);letter-spacing:-.035em;line-height:.98;font-weight:600;max-width:820px}
+.frentes .lista{margin-top:9vh;border-top:1px solid var(--preto-abs)}
+.frente{display:grid;grid-template-columns:120px 1.2fr 1.4fr 1fr;gap:24px;align-items:baseline;padding:30px clamp(16px,6vw,96px);border-bottom:1px solid #d5dae2;position:relative;cursor:default;transition:background .4s ease,color .4s ease}
+.frente .n{font-family:var(--mono);color:var(--verde);font-size:13px}
+.frente h3{font-size:clamp(22px,2.4vw,36px);letter-spacing:-.02em;font-weight:600}
+.frente p{color:#4a5568;line-height:1.55;font-size:15px}
+.frente .res{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--cinza-tec)}
+.frente:hover{background:var(--preto);color:#fff}
+.frente:hover p{color:#bdbdbd}
+.frente:hover .res{color:var(--limao)}
+.frente .espia{position:fixed;width:300px;aspect-ratio:4/5;pointer-events:none;z-index:40;opacity:0;transform:translate(-50%,-50%) scale(.85);transition:opacity .3s ease,transform .4s cubic-bezier(.2,.8,.2,1);overflow:hidden}
+.frente .espia img{width:100%;height:100%;object-fit:cover}
+.frente:hover .espia{opacity:1;transform:translate(-50%,-50%) scale(1)}
+@media (max-width:900px){.frente{grid-template-columns:1fr;gap:8px}.frente .espia{display:none}}
+
+/* ---------- 5. galeria (horizontal) ---------- */
+.galeria{background:var(--preto);color:#fff;position:relative}
+.galeria .palco{height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.galeria .topo{position:absolute;top:96px;left:clamp(16px,6vw,96px);right:clamp(16px,6vw,96px);display:flex;justify-content:space-between;align-items:end;z-index:2}
+.galeria .topo h2{font-size:clamp(28px,3.6vw,54px);letter-spacing:-.03em;font-weight:600}
+.galeria .contador{font-family:var(--mono);color:var(--limao)}
+.trilho{display:flex;gap:4vw;padding:0 clamp(16px,6vw,96px);will-change:transform;align-items:center;margin-top:40px}
+.quadro{flex:0 0 auto;position:relative}
+.quadro .moldura{height:58vh;overflow:hidden;position:relative;background:#111;outline:1px solid #2a2a2a;outline-offset:14px}
+.quadro.h .moldura{aspect-ratio:3/2}
+.quadro.v .moldura{aspect-ratio:4/5}
+.quadro.q .moldura{aspect-ratio:1/1}
+.quadro .moldura img{position:absolute;inset:-6% -10%;width:120%;max-width:none;height:112%;object-fit:cover;will-change:transform}
+.quadro .leg{margin-top:30px;display:flex;justify-content:space-between;gap:20px;max-width:100%}
+.quadro .leg b{font-weight:500;font-size:15px}
+.quadro .leg span{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#8a8a8a;white-space:nowrap}
+.quadro.fim .moldura{display:grid;place-items:center;background:var(--limao);outline-color:var(--limao);aspect-ratio:4/5}
+.quadro.fim .moldura .ic{width:38%;color:#fff}
+@media (max-width:820px){.quadro .moldura{height:48vh}}
+
+/* ---------- 6. chamada ---------- */
+.chamada{background:var(--limao);color:var(--preto-abs);min-height:100vh;display:grid;align-content:center;padding:14vh clamp(16px,6vw,96px);position:relative;overflow:hidden}
+.chamada .ic-fundo{position:absolute;right:5vw;bottom:8vh;width:min(26vw,360px);color:#fff}
+@media (max-width:820px){.chamada .ic-fundo{opacity:.4;right:-10vw;width:55vw}}
+.chamada h2{font-size:clamp(40px,7vw,120px);line-height:.92;letter-spacing:-.045em;font-weight:600;max-width:1000px;position:relative}
+.chamada p{margin-top:28px;max-width:460px;line-height:1.6;position:relative}
+.chamada .acoes{margin-top:40px;display:flex;gap:14px;flex-wrap:wrap;position:relative}
+.chamada .cta{background:var(--preto-abs);color:#fff}
+.chamada .cta.sec{background:transparent;color:var(--preto-abs);outline:1px solid var(--preto-abs)}
+
+footer{background:var(--preto);color:#8a8a8a;padding:48px clamp(16px,6vw,96px);display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+footer .assin{width:120px;color:#fff}
+footer .mono{font-size:11px}
+
+@media (prefers-reduced-motion:reduce){
+  .letreiro,.mascara{height:auto}
+  .letreiro .palco,.mascara .palco{position:relative}
+  .manifesto p.grande .w{opacity:1}
+  .mascara .frase{opacity:1}
+}
+</style>
+</head>
+<body>
+
+<div id="intro"><div class="ic" data-marca="icone"></div><div class="barra"><i></i></div></div>
+
+<header>
+  <a href="#" class="logo" data-marca="icone" aria-label="JA Brand"></a>
+  <nav class="so-desk mono">
+    <a href="#manifesto">Quem somos</a>
+    <a href="#frentes">Frentes</a>
+    <a href="#trabalhos">Trabalhos</a>
+    <a href="#contato">Contato</a>
+  </nav>
+  <a href="#contato" class="cta">Vamos conversar →</a>
+</header>
+
+<!-- 1. Letreiro: zoom pela janela do "A" -->
+<section class="letreiro" id="topo" data-claro>
+  <div class="palco">
+    <span class="rotulo mono">JA Brand // Design · Branding · Publicidade · Eventos · Sites</span>
+    <div class="foto"><img src="assets/letreiro-3d.jpg" alt="Letreiro 3D da JA Brand em verde sobre parede clara"></div>
+    <div class="texto">
+      <h1><span class="l"><span>Marcas relevantes</span></span><span class="l"><span>habitam todos os</span></span><span class="l"><span>pontos de <span class="verde">contato.</span></span></span></h1>
+      <p class="sub">Um único parceiro criativo e técnico para o seu site, suas redes, seus impressos e seus eventos — com a mesma cara em todos.</p>
+    </div>
+    <div class="rolar mono"><i></i>Role</div>
+    <div class="cortina"></div>
+  </div>
+</section>
+
+<!-- 2. Manifesto: palavra por palavra -->
+<section class="manifesto" id="manifesto">
+  <span class="mono">01 // Manifesto</span>
+  <p class="grande" data-palavras>Nascemos para eliminar a distância entre o planejamento visual e a entrega prática. Conectamos design, branding, publicidade online e offline, eventos e sites em *um único sistema vivo.*</p>
+  <div class="rodape">
+    <div><b data-conta="5">0</b><span>frentes integradas, da identidade ao site no ar.</span></div>
+    <div><b>360°</b><span>presença: digital, impresso, evento e ponto de venda.</span></div>
+    <div><b data-conta="1">0</b><span>parceiro só. Sem ruído entre fornecedores.</span></div>
+  </div>
+</section>
+
+<!-- 3. Máscara: o ícone vira janela -->
+<section class="mascara">
+  <div class="palco">
+    <div class="foto"><img src="assets/pessoa-bone.jpg" alt="Pessoa de boné preto diante do letreiro JA verde em parede de concreto"><div class="verdejo"></div></div>
+    <svg class="furo" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1600 1000" aria-hidden="true">
+      <defs><mask id="m"><rect width="1600" height="1000" fill="#fff"/><g id="mascara-ic" transform="translate(800 500)"></g></mask></defs>
+      <rect width="1600" height="1000" fill="#000" mask="url(#m)"/>
+    </svg>
+    <div class="frase">
+      <h2>Comunicação<br>sem ruídos.</h2>
+      <p>Identidade sólida, campanha que converte, evento ambientado e site rápido — feitos pelo mesmo time, com o mesmo padrão.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Frentes -->
+<section class="frentes" id="frentes" data-claro>
+  <div class="cab">
+    <h2>Cinco frentes.<br>Uma marca só.</h2>
+    <span class="mono" style="color:var(--cinza-tec)">02 // Ecossistema de atuação</span>
+  </div>
+  <div class="lista" id="lista-frentes"></div>
+</section>
+
+<!-- 5. Galeria horizontal de trabalhos -->
+<section class="galeria" id="trabalhos">
+  <div class="palco">
+    <div class="topo"><h2>Trabalhos</h2><span class="contador mono"><span id="cont-atual">01</span> / <span id="cont-total">00</span></span></div>
+    <div class="trilho" id="trilho"></div>
+  </div>
+</section>
+
+<!-- 6. Chamada -->
+<section class="chamada" id="contato" data-claro>
+  <div class="ic-fundo" data-marca="icone"></div>
+  <span class="mono" style="position:relative">03 // Próximo projeto</span>
+  <h2>Sua marca em todos os pontos de contato.</h2>
+  <p>Conta o que você precisa — identidade, campanha, evento ou site. A gente responde com um caminho claro e prazo.</p>
+  <div class="acoes">
+    <a class="cta" href="https://wa.me/" target="_blank" rel="noopener">Chamar no WhatsApp →</a>
+    <a class="cta sec" href="mailto:contato.jabrand@gmail.com">contato.jabrand@gmail.com</a>
+  </div>
+</section>
+
+<footer>
+  <div class="assin" data-marca="assinatura"></div>
+  <span class="mono">Design · Branding · Publicidade online & off · Eventos · Sites</span>
+  <span class="mono">© 2026 JA Brand</span>
+</footer>
+
+<script src="marca/marca.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="dados.js"></script>
+<script>
+(async function(){
+  // ---- marca nos lugares ----
+  document.querySelectorAll('[data-marca="icone"]').forEach(el=>el.innerHTML=window.JA_ICONE);
+  document.querySelectorAll('[data-marca="assinatura"]').forEach(el=>el.innerHTML=window.JA_ASSINATURA);
+  document.querySelectorAll('[data-marca] svg').forEach(s=>{s.style.width='100%';s.style.height='auto';s.style.display='block'});
+
+  // ---- ícone dentro da máscara (centralizado) ----
+  const tmp=new DOMParser().parseFromString(window.JA_ICONE,'image/svg+xml').documentElement;
+  const [,,vw,vh]=tmp.getAttribute('viewBox').split(/\s+/).map(Number);
+  const g=document.getElementById('mascara-ic');
+  const inner=tmp.querySelector('g'); inner.setAttribute('fill','#000');
+  const wrap=document.createElementNS('http://www.w3.org/2000/svg','g');
+  wrap.setAttribute('transform',`translate(${-vw/2} ${-vh/2})`); wrap.appendChild(inner);
+  const esc=document.createElementNS('http://www.w3.org/2000/svg','g'); esc.id='esc'; esc.appendChild(wrap); g.appendChild(esc);
+
+  // ---- dados ----
+  const D=await window.carregarPortfolio();
+  const lista=document.getElementById('lista-frentes');
+  D.frentes.forEach((f,i)=>{
+    const el=document.createElement('div'); el.className='frente';
+    el.innerHTML=`<span class="n">0${i+1} // ${f.chave}</span><h3>${f.titulo}</h3><p>${f.escopo}</p><span class="res">${f.resultado}</span><div class="espia"><img src="${f.imagem}" alt=""></div>`;
+    el.addEventListener('mousemove',e=>{const s=el.querySelector('.espia');s.style.left=e.clientX+'px';s.style.top=e.clientY+'px'});
+    lista.appendChild(el);
+  });
+  const trilho=document.getElementById('trilho');
+  D.trabalhos.forEach(t=>{
+    const q=document.createElement('figure'); q.className='quadro '+(t.orientacao==='vertical'?'v':t.orientacao==='quadrada'?'q':'h');
+    q.innerHTML=`<div class="moldura"><img src="${t.arquivo}" alt="${t.descricao}" loading="lazy"></div><figcaption class="leg"><b>${t.cliente}</b><span>${t.frente}</span></figcaption>`;
+    trilho.appendChild(q);
+  });
+  const fim=document.createElement('figure'); fim.className='quadro fim';
+  fim.innerHTML=`<div class="moldura"><div class="ic">${window.JA_ICONE}</div></div><figcaption class="leg"><b>O próximo é o seu.</b><span>Fale com a JA</span></figcaption>`;
+  trilho.appendChild(fim);
+  document.getElementById('cont-total').textContent=String(D.trabalhos.length).padStart(2,'0');
+
+  // ---- manifesto em palavras ----
+  const pg=document.querySelector('[data-palavras]');
+  let verde=false;
+  pg.innerHTML=pg.textContent.split(/\s+/).map(w=>{
+    if(w.startsWith('*')){verde=true;w=w.slice(1)}
+    let fecha=false; if(w.endsWith('*')){fecha=true;w=w.slice(0,-1)} else if(w.endsWith('*.')){fecha=true;w=w.slice(0,-2)+'.'}
+    const s=`<span class="w${verde?' g':''}">${w}</span>`; if(fecha)verde=false; return s;
+  }).join(' ');
+
+  const reduz=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let lenis=null;
+  if(!reduz){
+    lenis=new Lenis({lerp:.085}); window.__lenis=lenis;
+    lenis.on('scroll',ScrollTrigger.update);
+    gsap.ticker.add(t=>lenis.raf(t*1000)); gsap.ticker.lagSmoothing(0);
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+    const id=a.getAttribute('href'); if(id.length<2)return; e.preventDefault();
+    lenis?lenis.scrollTo(id,{duration:1.6}):document.querySelector(id).scrollIntoView({behavior:'smooth'});
+  }));
+
+  gsap.registerPlugin(ScrollTrigger);
+  // ---- topo claro/escuro conforme a seção ----
+  const head=document.querySelector('header');
+  document.querySelectorAll('section').forEach(sec=>ScrollTrigger.create({trigger:sec,start:'top 40px',end:'bottom 40px',onToggle:st=>{if(st.isActive)head.classList.toggle('claro',sec.hasAttribute('data-claro'))}}));
+  head.classList.add('claro');
+
+  // ---- intro ----
+  const tl=gsap.timeline();
+  tl.to('#intro .barra i',{scaleX:1,duration:1.1,ease:'power2.inOut'})
+    .to('#intro .ic',{scale:1.15,opacity:0,duration:.5,ease:'power2.in'},'-=.1')
+    .to('#intro',{yPercent:-100,duration:.9,ease:'expo.inOut'},'-=.15')
+    .from('.letreiro h1 .l span',{yPercent:110,duration:1.1,stagger:.09,ease:'expo.out'},'-=.45')
+    .from('.letreiro .sub, .letreiro .rotulo, .letreiro .rolar',{opacity:0,y:16,duration:.8,stagger:.08},'-=.7')
+    .from('.letreiro .foto',{scale:1.12,opacity:0,duration:1.6,ease:'expo.out'},'<-0.9');
+  if(reduz) return;
+
+  // ---- 1. zoom pela janela do A ----
+  // centro da janela do "A" na foto (proporção da imagem)
+  const JX=.55, JY=.317;
+  gsap.set('.letreiro .foto',{transformOrigin:`${JX*100}% ${JY*100}%`});
+  const t1=gsap.timeline({scrollTrigger:{trigger:'.letreiro',start:'top top',end:'bottom bottom',scrub:1}});
+  t1.to('.letreiro .texto, .letreiro .rotulo, .letreiro .rolar',{opacity:0,y:-40,duration:.25},0)
+    .to('.letreiro .foto',{
+        x:()=>{const r=document.querySelector('.letreiro .foto').getBoundingClientRect();return innerWidth/2-(r.left+r.width*JX)},
+        duration:.35,ease:'power1.inOut'},0)
+    .to('.letreiro .foto',{scale:16,duration:.75,ease:'power3.in'},.15)
+    .to('.letreiro .cortina',{opacity:1,duration:.2},.75);
+
+  // ---- 2. manifesto ----
+  gsap.to('.manifesto .w',{opacity:1,stagger:.05,ease:'none',
+    scrollTrigger:{trigger:'.manifesto p.grande',start:'top 80%',end:'bottom 45%',scrub:true}});
+  document.querySelectorAll('[data-conta]').forEach(b=>{
+    const alvo=+b.dataset.conta; const o={v:0};
+    ScrollTrigger.create({trigger:b,start:'top 85%',once:true,onEnter:()=>gsap.to(o,{v:alvo,duration:1.4,ease:'power2.out',onUpdate:()=>b.textContent=String(Math.round(o.v)).padStart(2,'0')})});
+  });
+
+  // ---- 3. máscara do ícone ----
+  const Z={k:.45}; const escEl=document.getElementById('esc');
+  const aplicar=()=>escEl.setAttribute('transform',`scale(${Z.k})`); aplicar();
+  const t3=gsap.timeline({scrollTrigger:{trigger:'.mascara',start:'top top',end:'bottom bottom',scrub:1}});
+  // começa centralizado e desliza o foco para a haste sólida da direita do "A" (senão o zoom cai no vão e fica preto)
+  const foco={x:vw/2,y:vh/2};
+  const mover=()=>wrap.setAttribute('transform',`translate(${-foco.x} ${-foco.y})`);
+  t3.to(foco,{x:vw*.93,y:vh*.52,duration:.6,ease:'power1.inOut',onUpdate:mover},0)
+    .to(Z,{k:14,duration:1,ease:'power3.in',onUpdate:aplicar},0)
+    .fromTo('.mascara .foto img',{scale:1.25},{scale:1,duration:1,ease:'none'},0)
+    .to('.mascara .frase',{opacity:1,y:0,duration:.25},.72)
+    .from('.mascara .frase',{y:30,duration:.25},.72);
+
+  // ---- 4. frentes entram ----
+  gsap.from('.frente',{opacity:0,y:30,stagger:.08,duration:.8,ease:'power3.out',
+    scrollTrigger:{trigger:'.frentes .lista',start:'top 80%'}});
+
+  // ---- 5. galeria horizontal ----
+  const quadros=gsap.utils.toArray('.quadro');
+  const distancia=()=>trilho.scrollWidth-innerWidth;
+  const hz=gsap.to(trilho,{x:()=>-distancia(),ease:'none',
+    scrollTrigger:{trigger:'.galeria',pin:'.galeria .palco',start:'top top',end:()=>'+='+distancia(),scrub:1,invalidateOnRefresh:true,
+      onUpdate:s=>{const i=Math.min(D.trabalhos.length,Math.max(1,Math.round(s.progress*(D.trabalhos.length-1))+1));document.getElementById('cont-atual').textContent=String(i).padStart(2,'0')}}});
+  quadros.forEach(q=>{
+    const img=q.querySelector('img'); if(!img)return;
+    gsap.fromTo(img,{xPercent:-7},{xPercent:7,ease:'none',scrollTrigger:{trigger:q,containerAnimation:hz,start:'left right',end:'right left',scrub:true}});
+    gsap.fromTo(q.querySelector('.moldura'),{scale:.86},{scale:1,ease:'none',scrollTrigger:{trigger:q,containerAnimation:hz,start:'left right',end:'center center',scrub:true}});
+  });
+
+  // ---- 6. chamada ----
+  gsap.from('.chamada .ic-fundo',{rotate:-12,yPercent:30,opacity:0,ease:'none',scrollTrigger:{trigger:'.chamada',start:'top bottom',end:'top 20%',scrub:true}});
+  gsap.from('.chamada h2',{y:60,opacity:0,duration:1,ease:'expo.out',scrollTrigger:{trigger:'.chamada',start:'top 60%'}});
+
+  addEventListener('load',()=>ScrollTrigger.refresh());
+})();
+</script>
+</body>
+</html>

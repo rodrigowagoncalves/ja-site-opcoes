@@ -1,0 +1,152 @@
+[
+  {
+    "arquivo": "liga-padel-eventos-4.jpg",
+    "cliente": "Liga Brasileira de Padel",
+    "frente": "eventos",
+    "descricao_curta": "Palco do evento de lançamento da Liga, com telão da marca e plateia.",
+    "orientacao": "horizontal",
+    "largura": 1800,
+    "altura": 1200,
+    "politico": false
+  },
+  {
+    "arquivo": "fn7-branding-1.jpg",
+    "cliente": "FN7 Engenharia",
+    "frente": "branding",
+    "descricao_curta": "Aplicação da identidade visual da FN7 em peça editorial com arquitetura.",
+    "orientacao": "vertical",
+    "largura": 1080,
+    "altura": 1350,
+    "politico": false
+  },
+  {
+    "arquivo": "milk-shake-design-1.jpg",
+    "cliente": "Milk Shake Hair",
+    "frente": "design",
+    "descricao_curta": "Post de feed com o óleo Argan sobre fundo de mechas douradas.",
+    "orientacao": "vertical",
+    "largura": 1080,
+    "altura": 1350,
+    "politico": false
+  },
+  {
+    "arquivo": "liga-padel-eventos-1.jpg",
+    "cliente": "Liga Brasileira de Padel",
+    "frente": "eventos",
+    "descricao_curta": "Arena da etapa de novembro da Liga com quadras de vidro montadas e iluminadas.",
+    "orientacao": "horizontal",
+    "largura": 1800,
+    "altura": 1200,
+    "politico": false
+  },
+  {
+    "arquivo": "liga-padel-sites-1.jpg",
+    "cliente": "Liga Brasileira de Padel",
+    "frente": "sites",
+    "descricao_curta": "Preview das seções do site da Liga, com banners fotográficos em verde e amarelo.",
+    "orientacao": "vertical",
+    "largura": 1152,
+    "altura": 1800,
+    "politico": false
+  },
+  {
+    "arquivo": "milk-shake-publicidade-1.jpg",
+    "cliente": "Milk Shake Hair",
+    "frente": "publicidade",
+    "descricao_curta": "Ensaio de produto com modelo segurando a linha Milk Shake.",
+    "orientacao": "vertical",
+    "largura": 1200,
+    "altura": 1800,
+    "politico": false
+  },
+  {
+    "arquivo": "liga-padel-audiovisual-2.jpg",
+    "cliente": "Liga Brasileira de Padel",
+    "frente": "audiovisual",
+    "descricao_curta": "Ensaio fotográfico de atleta com raquete para a Liga.",
+    "orientacao": "vertical",
+    "largura": 1200,
+    "altura": 1800,
+    "politico": false
+  },
+  {
+    "arquivo": "liga-padel-publicidade-1.jpg",
+    "cliente": "Liga Brasileira de Padel",
+    "frente": "publicidade",
+    "descricao_curta": "Peça de inscrições abertas com R$ 1 milhão em prêmios.",
+    "orientacao": "vertical",
+    "largura": 1080,
+    "altura": 1350,
+    "politico": false
+  },
+  {
+    "arquivo": "liga-padel-eventos-2.jpg",
+    "cliente": "Liga Brasileira de Padel",
+    "frente": "eventos",
+    "descricao_curta": "Atleta no backdrop iluminado da Liga Brasileira de Padel durante o evento.",
+    "orientacao": "horizontal",
+    "largura": 1800,
+    "altura": 1200,
+    "politico": false
+  },
+  {
+    "arquivo": "shopping-atlantico-publicidade-1.jpg",
+    "cliente": "Shopping Atlântico",
+    "frente": "publicidade",
+    "descricao_curta": "Carrossel de moda \"Collabs\" fotografado no shopping.",
+    "orientacao": "vertical",
+    "largura": 1080,
+    "altura": 1440,
+    "politico": false
+  },
+  {
+    "arquivo": "milk-shake-sites-1.jpg",
+    "cliente": "Milk Shake Hair",
+    "frente": "sites",
+    "descricao_curta": "Banner de site da linha Incredible Milk.",
+    "orientacao": "horizontal",
+    "largura": 1800,
+    "altura": 750,
+    "politico": false
+  },
+  {
+    "arquivo": "liga-padel-design-1.jpg",
+    "cliente": "Liga Brasileira de Padel",
+    "frente": "design",
+    "descricao_curta": "Post de feed com atleta atrás da rede: \"Quem joga padel já faz parte da revolução\".",
+    "orientacao": "vertical",
+    "largura": 1080,
+    "altura": 1350,
+    "politico": false
+  },
+  {
+    "arquivo": "liga-padel-eventos-3.jpg",
+    "cliente": "Liga Brasileira de Padel",
+    "frente": "eventos",
+    "descricao_curta": "Atleta comemora ponto na quadra durante a etapa de novembro da Liga.",
+    "orientacao": "vertical",
+    "largura": 1200,
+    "altura": 1800,
+    "politico": false
+  },
+  {
+    "arquivo": "liga-padel-audiovisual-1.jpg",
+    "cliente": "Liga Brasileira de Padel",
+    "frente": "audiovisual",
+    "descricao_curta": "Quadro do VT para TV (apoio NSC Esporte), close na raquete.",
+    "orientacao": "horizontal",
+    "largura": 1800,
+    "altura": 1012,
+    "politico": false
+  },
+  {
+    "arquivo": "jcorrea-audiovisual-1.jpg",
+    "cliente": "J Correa Advogados",
+    "frente": "audiovisual",
+    "descricao_curta": "Retrato corporativo do ensaio fotográfico do escritório.",
+    "orientacao": "vertical",
+    "largura": 1200,
+    "altura": 1800,
+    "politico": false
+  }
+]
