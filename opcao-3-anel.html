@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>JA Brand — Anel</title>
+<meta name="description" content="JA Brand: design, branding, publicidade online e offline, eventos e sites.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--verde:#8CC63F;--limao:#B6EE75;--preto:#000;--preto-abs:#121212;--grafite:#262626;--cinza-tec:#64748B;--linha:#E2E8F0;--gelo:#F8FAFC;
+  --mono:"Kode Mono",ui-monospace,monospace;--sans:"Poppins",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--gelo)}
+body{font-family:var(--sans);color:var(--preto-abs);background:var(--gelo);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.mono{font-family:var(--mono);letter-spacing:.08em;text-transform:uppercase;font-size:12px}
+.verde{color:var(--verde)}
+header{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:20px clamp(16px,4vw,48px);transition:background .3s,color .3s}
+header.escuro{color:#fff}
+header .logo{width:30px;color:var(--verde)}
+header nav{display:flex;gap:28px}
+.cta{display:inline-flex;align-items:center;gap:10px;background:var(--preto-abs);color:#fff;padding:12px 18px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;transition:transform .3s}
+.cta:hover{transform:translateY(-2px)}
+header.escuro .cta{background:var(--limao);color:var(--preto-abs)}
+@media (max-width:820px){header nav{display:none}}
+
+/* hero com anel */
+.hero{height:260vh;position:relative}
+.hero .palco{position:sticky;top:0;height:100vh;overflow:hidden}
+.hero h1{position:absolute;z-index:5;transform:translate3d(0,0,0);font-weight:600;letter-spacing:-.05em;line-height:.9;font-size:clamp(44px,7.2vw,120px);pointer-events:none}
+.hero h1.e{left:clamp(16px,4vw,56px);top:12vh}
+.hero h1.d{right:clamp(16px,4vw,56px);bottom:7vh;text-align:right}
+.hero h1 .l{display:block}
+.hero h1 .l>span{display:block}
+.hero .lado{position:absolute;z-index:5;transform:translateZ(0);left:clamp(16px,4vw,56px);bottom:8vh;max-width:300px;font-size:14px;line-height:1.6;color:#475569}
+.hero .lado b{display:block;font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--preto-abs);margin-bottom:8px}
+.cena{position:absolute;inset:0;perspective:1500px;display:grid;place-items:center;z-index:1;isolation:isolate;transform:translateZ(0)}
+.anel{position:relative;width:1px;height:1px;transform-style:preserve-3d;will-change:transform}
+.carta{position:absolute;left:0;top:0;width:var(--w);height:calc(var(--w)*1.25);margin-left:calc(var(--w)/-2);margin-top:calc(var(--w)*-.625);backface-visibility:visible;background:#fff;box-shadow:0 18px 40px rgba(15,23,42,.18);overflow:hidden;cursor:pointer}
+.carta img{width:100%;height:100%;object-fit:cover}
+.carta::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,.35))}
+.hero .dica{position:absolute;right:clamp(16px,4vw,56px);top:13vh;z-index:5;text-align:right;color:var(--cinza-tec)}
+@media (max-width:820px){.hero h1.e{top:13vh}.hero h1.d{bottom:22vh}.hero .lado{display:none}.hero .dica{display:none}}
+
+/* clientes */
+.clientes{border-top:1px solid var(--linha);border-bottom:1px solid var(--linha);overflow:hidden;padding:26px 0;background:#fff}
+.clientes .faixa{display:flex;gap:56px;white-space:nowrap;width:max-content;animation:corre 40s linear infinite}
+.clientes .faixa span{font-size:clamp(20px,2.2vw,32px);font-weight:600;letter-spacing:-.02em;color:#94a3b8}
+.clientes .faixa span i{font-style:normal;color:var(--verde);margin-left:56px}
+@keyframes corre{to{transform:translateX(-50%)}}
+
+/* cases em lista */
+.cases{padding:16vh clamp(16px,5vw,72px) 12vh}
+.cases .cab{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
+.cases h2{font-size:clamp(40px,6vw,96px);line-height:.92;letter-spacing:-.045em;font-weight:600}
+.filtros{display:flex;gap:8px;flex-wrap:wrap}
+.filtros button{background:transparent;border:1px solid #cbd5e1;color:#334155;padding:9px 14px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .25s}
+.filtros button.on,.filtros button:hover{background:var(--preto-abs);border-color:var(--preto-abs);color:#fff}
+.lista{margin-top:8vh;border-top:1px solid var(--preto-abs)}
+.linha{display:grid;grid-template-columns:70px 1.3fr 1.4fr 1fr 40px;gap:24px;align-items:center;padding:26px 0;border-bottom:1px solid #d5dae2;cursor:pointer;position:relative;transition:padding .35s cubic-bezier(.2,.8,.2,1)}
+.linha .n{font-family:var(--mono);font-size:12px;color:var(--cinza-tec)}
+.linha h3{font-size:clamp(24px,2.6vw,40px);letter-spacing:-.03em;font-weight:600}
+.linha .p{color:#475569}
+.linha .t{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--cinza-tec)}
+.linha .seta{font-size:22px;transition:transform .35s}
+.linha:hover{padding-left:18px}
+.linha:hover .seta{transform:translateX(6px);color:var(--verde)}
+.linha.some{display:none}
+.espia{position:fixed;z-index:40;width:280px;aspect-ratio:4/5;pointer-events:none;overflow:hidden;opacity:0;transform:translate(-50%,-50%) scale(.85) rotate(-4deg);transition:opacity .25s,transform .45s cubic-bezier(.2,.8,.2,1);box-shadow:0 30px 60px rgba(15,23,42,.25)}
+.espia.on{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(-2deg)}
+.espia img{width:100%;height:100%;object-fit:cover}
+@media (max-width:900px){.linha{grid-template-columns:44px 1fr 30px}.linha .p,.linha .t{display:none}.espia{display:none}}
+
+/* frentes */
+.frentes{background:var(--preto-abs);color:#fff;padding:16vh clamp(16px,5vw,72px)}
+.frentes h2{font-size:clamp(34px,4.6vw,72px);letter-spacing:-.04em;line-height:.95;font-weight:600;max-width:900px}
+.frentes .g{margin-top:8vh;display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:#2a2a2a;border:1px solid #2a2a2a}
+.frentes .g div{background:var(--preto-abs);padding:28px 22px 34px;min-height:260px;display:flex;flex-direction:column;gap:14px}
+.frentes .g .n{font-family:var(--mono);color:var(--limao);font-size:12px}
+.frentes .g h3{font-size:22px;letter-spacing:-.02em;font-weight:600}
+.frentes .g p{color:#a3a3a3;font-size:14px;line-height:1.6}
+@media (max-width:1000px){.frentes .g{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.frentes .g{grid-template-columns:1fr}}
+
+.chamada{background:var(--limao);min-height:90vh;display:grid;align-content:center;padding:14vh clamp(16px,5vw,72px);position:relative;overflow:hidden}
+.chamada h2{font-size:clamp(40px,7vw,120px);line-height:.92;letter-spacing:-.05em;font-weight:600;max-width:1000px;position:relative}
+.chamada p{margin-top:24px;max-width:460px;line-height:1.6;position:relative}
+.chamada .acoes{margin-top:36px;display:flex;gap:12px;flex-wrap:wrap;position:relative}
+.chamada .cta.sec{background:transparent;color:var(--preto-abs);outline:1px solid var(--preto-abs)}
+.chamada .ic{position:absolute;right:5vw;bottom:8vh;width:min(24vw,320px);color:#fff}
+@media (max-width:820px){.chamada .ic{opacity:.45;width:50vw;right:-8vw}}
+footer{background:var(--preto);color:#8a8a8a;padding:44px clamp(16px,5vw,72px);display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+footer .assin{width:120px;color:#fff}
+footer .mono{font-size:11px}
+</style>
+</head>
+<body>
+<header id="topo-h">
+  <a href="#" class="logo" data-marca="icone" aria-label="JA Brand"></a>
+  <nav class="mono"><a href="#cases">Cases</a><a href="#frentes">Frentes</a><a href="#contato">Contato</a></nav>
+  <a href="#contato" class="cta">Vamos conversar →</a>
+</header>
+
+<section class="hero">
+  <div class="palco">
+    <h1 class="e"><span class="l"><span>Marcas</span></span><span class="l"><span>relevantes</span></span></h1>
+    <h1 class="d"><span class="l"><span>em todos os</span></span><span class="l"><span>pontos de <span class="verde">contato.</span></span></span></h1>
+    <div class="lado"><b>JA Brand</b>Design, branding, publicidade online e offline, eventos e sites — feitos pelo mesmo time, com o mesmo padrão.</div>
+    <span class="dica mono">Role para girar · clique numa peça</span>
+    <div class="cena"><div class="anel" id="anel"></div></div>
+  </div>
+</section>
+
+<div class="clientes"><div class="faixa" id="faixa"></div></div>
+
+<section class="cases" id="cases">
+  <div class="cab">
+    <div><span class="mono" style="color:var(--cinza-tec)">Portfólio por cliente</span><h2>Cases.</h2></div>
+    <div class="filtros" id="filtros"></div>
+  </div>
+  <div class="lista" id="lista"></div>
+</section>
+<div class="espia" id="espia"><img alt=""></div>
+
+<section class="frentes" id="frentes">
+  <span class="mono" style="color:#8a8a8a">O que a JA faz</span>
+  <h2>Cinco frentes. Uma marca só.</h2>
+  <div class="g" id="g"></div>
+</section>
+
+<section class="chamada" id="contato">
+  <div class="ic" data-marca="icone"></div>
+  <span class="mono" style="position:relative">Próximo case</span>
+  <h2>Sua marca em todos os pontos de contato.</h2>
+  <p>Conta o que você precisa — identidade, campanha, evento ou site. A gente responde com um caminho claro e prazo.</p>
+  <div class="acoes"><a class="cta" href="https://wa.me/" target="_blank" rel="noopener">Chamar no WhatsApp →</a><a class="cta sec" href="mailto:contato.jabrand@gmail.com">contato.jabrand@gmail.com</a></div>
+</section>
+<footer><div class="assin" data-marca="assinatura"></div><span class="mono">Design · Branding · Publicidade online & off · Eventos · Sites</span><span class="mono">© 2026 JA Brand</span></footer>
+
+<script src="marca/marca.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="dados.js"></script>
+<script src="casos.js"></script>
+<script src="caso.js"></script>
+<script>
+(function(){
+  document.querySelectorAll('[data-marca="icone"]').forEach(el=>el.innerHTML=window.JA_ICONE);
+  document.querySelectorAll('[data-marca="assinatura"]').forEach(el=>el.innerHTML=window.JA_ASSINATURA);
+  document.querySelectorAll('[data-marca] svg').forEach(s=>{s.style.width='100%';s.style.height='auto';s.style.display='block'});
+  const C=window.JA_CASOS, reduz=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ---- anel: uma carta por peça (capas primeiro, depois peças extras até 16) ----
+  const pecas=[]; C.forEach((c,i)=>pecas.push({src:c.capa,i}));
+  for(let k=1;pecas.length<16;k++){ let add=false; C.forEach((c,i)=>{ if(c.pecas[k]&&pecas.length<16){pecas.push({src:c.pecas[k],i});add=true} }); if(!add)break; }
+  const anel=document.getElementById('anel'); const N=pecas.length;
+  const larg=()=>Math.max(110,Math.min(165,innerWidth*.105)); const raio=()=>Math.max(220,Math.min(500,innerWidth*.3));
+  pecas.forEach((p,k)=>{ const d=document.createElement('div'); d.className='carta'; d.innerHTML=`<img src="${p.src}" alt="${C[p.i].cliente}">`; d.onclick=()=>abrirCaso(C,p.i,'rolo'); anel.appendChild(d); });
+  function posicionar(){ const w=larg(), r=raio(); anel.style.setProperty('--w',w+'px'); anel.querySelectorAll('.carta').forEach((d,k)=>{ d.style.transform=`rotateY(${k*360/N}deg) translateZ(${r}px)` }); }
+  posicionar(); addEventListener('resize',posicionar);
+  const A={rot:0,tilt:-12,esc:1,y:20}; const I={esc:1,tilt:0}; let vel=reduz?0:.06;
+  function gira(){ A.rot+=vel; anel.style.transform=`translateY(${A.y}px) scale(${A.esc*I.esc}) rotateX(${A.tilt+I.tilt}deg) rotateY(${A.rot}deg)`; requestAnimationFrame(gira); }
+  requestAnimationFrame(gira);
+
+  // ---- clientes na faixa ----
+  const nomes=[...new Set(C.map(c=>c.cliente))];
+  document.getElementById('faixa').innerHTML=[...nomes,...nomes].map(n=>`<span>${n}<i>✦</i></span>`).join('');
+
+  // ---- lista de cases ----
+  const lista=document.getElementById('lista'), espia=document.getElementById('espia');
+  C.forEach((c,i)=>{
+    const l=document.createElement('div'); l.className='linha'; l.dataset.f=c.frentes.join('|');
+    l.innerHTML=`<span class="n">${String(i+1).padStart(2,'0')}</span><h3>${c.cliente}</h3><span class="p">${c.projeto}</span><span class="t">${c.frentes.join(' · ')}</span><span class="seta">→</span>`;
+    l.onmouseenter=()=>{espia.querySelector('img').src=c.capa;espia.classList.add('on')};
+    l.onmouseleave=()=>espia.classList.remove('on');
+    l.onmousemove=e=>{espia.style.left=e.clientX+'px';espia.style.top=e.clientY+'px'};
+    l.onclick=()=>abrirCaso(C,i,'rolo');
+    lista.appendChild(l);
+  });
+  const filtros=document.getElementById('filtros');
+  ['Todos',...new Set(C.flatMap(c=>c.frentes))].forEach((n,i)=>{const b=document.createElement('button');b.textContent=n;if(!i)b.className='on';
+    b.onclick=()=>{filtros.querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.add('on');lista.querySelectorAll('.linha').forEach(l=>l.classList.toggle('some',n!=='Todos'&&!l.dataset.f.split('|').includes(n)));ScrollTrigger.refresh()};
+    filtros.appendChild(b)});
+
+  // ---- frentes ----
+  document.getElementById('g').innerHTML=window.JA_FRENTES.map((f,i)=>`<div><span class="n">0${i+1} // ${f.chave}</span><h3>${f.titulo}</h3><p>${f.escopo}</p></div>`).join('');
+
+  // ---- rolagem ----
+  gsap.registerPlugin(ScrollTrigger);
+  let lenis=null;
+  if(!reduz){ lenis=new Lenis({lerp:.085}); window.__lenis=lenis; lenis.on('scroll',ScrollTrigger.update); gsap.ticker.add(t=>lenis.raf(t*1000)); gsap.ticker.lagSmoothing(0); }
+  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const id=a.getAttribute('href');if(id.length<2)return;e.preventDefault();lenis?lenis.scrollTo(id,{duration:1.6}):document.querySelector(id).scrollIntoView({behavior:'smooth'})}));
+  const head=document.getElementById('topo-h');
+  ScrollTrigger.create({trigger:'.frentes',start:'top 40px',end:'bottom 40px',onToggle:s=>head.classList.toggle('escuro',s.isActive)});
+
+  gsap.from('.hero h1 .l>span',{y:50,opacity:0,duration:1.2,stagger:.08,ease:'expo.out',delay:.15});
+  Object.assign(I,{esc:.4,tilt:-48}); gsap.to(I,{esc:1,tilt:0,duration:2.2,ease:'expo.out'});
+  gsap.from('.hero .lado,.hero .dica',{opacity:0,y:16,duration:1,delay:.7});
+  if(!reduz){
+    // rolar gira o anel mais rápido, inclina e aproxima
+    let ult=0;
+    ScrollTrigger.create({trigger:'.hero',start:'top top',end:'bottom bottom',onUpdate:s=>{ const dv=s.getVelocity(); vel=.06+Math.min(2.5,Math.abs(dv)/900)*Math.sign(dv||1); }});
+    gsap.timeline({scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom bottom',scrub:1}})
+      .to(A,{tilt:14,esc:1.35,y:60,ease:'none'},0)
+      .to('.hero h1.e',{xPercent:-30,opacity:0,ease:'none'},.35)
+      .to('.hero h1.d',{xPercent:30,opacity:0,ease:'none'},.35)
+      .to('.hero .lado,.hero .dica',{opacity:0,ease:'none'},.3);
+    setInterval(()=>{ vel+= (.06-vel)*.08; },50);
+    gsap.from('.linha',{opacity:0,y:30,stagger:.05,duration:.8,ease:'power3.out',scrollTrigger:{trigger:'.lista',start:'top 85%'}});
+    gsap.from('.frentes .g div',{opacity:0,y:40,stagger:.08,duration:.9,ease:'expo.out',scrollTrigger:{trigger:'.frentes .g',start:'top 85%'}});
+    gsap.from('.chamada h2',{y:60,opacity:0,duration:1,ease:'expo.out',scrollTrigger:{trigger:'.chamada',start:'top 60%'}});
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>JA Brand — Mosaico</title>
+<meta name="description" content="JA Brand: design, branding, publicidade online e offline, eventos e sites.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--verde:#8CC63F;--limao:#B6EE75;--preto:#000;--preto-abs:#121212;--grafite:#262626;--cinza-tec:#64748B;
+  --mono:"Kode Mono",ui-monospace,monospace;--sans:"Poppins",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:#000}
+body{font-family:var(--sans);color:#fff;background:#000;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.mono{font-family:var(--mono);letter-spacing:.08em;text-transform:uppercase;font-size:12px}
+.limao{color:var(--limao)}
+header{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:20px clamp(16px,4vw,48px);background:linear-gradient(rgba(0,0,0,.7),transparent)}
+header .logo{width:30px;color:var(--verde)}
+header nav{display:flex;gap:28px;color:#bdbdbd}
+header nav a:hover{color:#fff}
+.cta{display:inline-flex;align-items:center;gap:10px;background:var(--limao);color:var(--preto-abs);padding:12px 18px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;transition:transform .3s}
+.cta:hover{transform:translateY(-2px)}
+@media (max-width:820px){header nav{display:none}}
+
+/* hero: capas dos cases trocando dentro do ícone JA */
+.hero{height:100vh;position:relative;overflow:hidden}
+.hero .fotos{position:absolute;inset:0}
+.hero .fotos img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.12);filter:saturate(.9) brightness(.55)}
+.hero .fotos img.on{opacity:1;transform:scale(1);transition:opacity 1.2s ease,transform 7s linear}
+.hero .grad{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.1) 40%,rgba(0,0,0,.85))}
+.hero .txt{position:absolute;left:clamp(16px,5vw,72px);right:clamp(16px,5vw,72px);bottom:10vh;z-index:2}
+.hero h1{font-family:var(--mono);font-weight:500;text-transform:uppercase;font-size:clamp(32px,5.6vw,92px);line-height:1;letter-spacing:-.01em;max-width:1150px}
+.hero h1 .l{display:block;overflow:hidden}
+.hero h1 .l>span{display:block}
+.hero .rod{margin-top:30px;display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.2);padding-top:18px}
+.hero .atual{font-size:15px}
+.hero .atual b{font-weight:600}
+.hero .barras{display:flex;gap:6px}
+.hero .barras i{width:28px;height:2px;background:rgba(255,255,255,.25);position:relative;overflow:hidden;cursor:pointer}
+.hero .barras i b{position:absolute;inset:0;background:var(--limao);transform-origin:left;transform:scaleX(0)}
+
+/* mosaico */
+.mosaico{padding:14vh clamp(10px,2vw,24px) 10vh}
+.mosaico .cab{padding:0 clamp(6px,3vw,48px);display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
+.mosaico h2{font-size:clamp(40px,6vw,96px);letter-spacing:-.045em;line-height:.92;font-weight:600}
+.filtros{display:flex;gap:8px;flex-wrap:wrap}
+.filtros button{background:transparent;border:1px solid #333;color:#bdbdbd;padding:9px 14px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .25s}
+.filtros button.on,.filtros button:hover{background:var(--limao);border-color:var(--limao);color:#121212}
+.grade{margin-top:7vh;display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:clamp(180px,19vw,300px);grid-auto-flow:dense;gap:8px}
+.tile{position:relative;overflow:hidden;cursor:pointer;background:#111}
+.tile.g{grid-column:span 2;grid-row:span 2}
+.tile.w{grid-column:span 2}
+.tile.t{grid-row:span 2}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.8,.2,1),filter .6s;filter:saturate(.85) brightness(.9)}
+.tile::before{content:"";position:absolute;inset:0;z-index:1;background:var(--cor);mix-blend-mode:multiply;opacity:.35;transition:opacity .6s}
+.tile:hover img{transform:scale(1.06);filter:saturate(1.05) brightness(1)}
+.tile:hover::before{opacity:0}
+.tile .r{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:18px;background:linear-gradient(transparent,rgba(0,0,0,.85));display:flex;justify-content:space-between;align-items:end;gap:12px}
+.tile .r b{display:block;font-size:clamp(16px,1.5vw,22px);font-weight:600;letter-spacing:-.02em}
+.tile .r small{display:block;color:#cfcfcf;font-size:13px;margin-top:2px}
+.tile .r span{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--limao);white-space:nowrap}
+.tile.some{display:none}
+@media (max-width:900px){.grade{grid-template-columns:repeat(2,1fr);grid-auto-rows:44vw}.tile.g{grid-column:span 2;grid-row:span 1}.tile.t{grid-row:span 1}}
+
+/* números + frentes */
+.faixa-n{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #222;border-bottom:1px solid #222}
+.faixa-n div{padding:40px clamp(16px,3vw,40px);border-right:1px solid #222}
+.faixa-n div:last-child{border-right:0}
+.faixa-n b{display:block;font-family:var(--mono);font-weight:500;font-size:clamp(36px,4vw,60px);color:var(--limao)}
+.faixa-n span{color:#9a9a9a;font-size:14px}
+@media (max-width:820px){.faixa-n{grid-template-columns:1fr 1fr}.faixa-n div:nth-child(2){border-right:0}}
+.frentes{padding:16vh clamp(16px,5vw,72px)}
+.frentes h2{font-size:clamp(34px,4.6vw,72px);letter-spacing:-.04em;line-height:.95;font-weight:600}
+.fr{margin-top:7vh;border-top:1px solid #333}
+.fr div{display:grid;grid-template-columns:110px 1fr 1.3fr;gap:24px;padding:26px 0;border-bottom:1px solid #222;align-items:baseline}
+.fr .n{font-family:var(--mono);color:var(--limao);font-size:12px}
+.fr h3{font-size:clamp(22px,2.4vw,34px);letter-spacing:-.02em;font-weight:600}
+.fr p{color:#a3a3a3;line-height:1.6}
+@media (max-width:820px){.fr div{grid-template-columns:1fr;gap:6px}}
+
+.chamada{background:var(--limao);color:var(--preto-abs);min-height:90vh;display:grid;align-content:center;padding:14vh clamp(16px,5vw,72px);position:relative;overflow:hidden}
+.chamada h2{font-family:var(--mono);text-transform:uppercase;font-weight:500;font-size:clamp(34px,6vw,100px);line-height:.98;letter-spacing:-.02em;max-width:1050px;position:relative}
+.chamada p{margin-top:24px;max-width:460px;line-height:1.6;position:relative}
+.chamada .acoes{margin-top:36px;display:flex;gap:12px;flex-wrap:wrap;position:relative}
+.chamada .cta{background:var(--preto-abs);color:#fff}
+.chamada .cta.sec{background:transparent;color:var(--preto-abs);outline:1px solid var(--preto-abs)}
+.chamada .ic{position:absolute;right:5vw;bottom:8vh;width:min(24vw,320px);color:#fff}
+@media (max-width:820px){.chamada .ic{opacity:.45;width:50vw;right:-8vw}}
+footer{background:#000;color:#8a8a8a;padding:44px clamp(16px,5vw,72px);display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+footer .assin{width:120px;color:var(--verde)}
+footer .mono{font-size:11px}
+</style>
+</head>
+<body>
+<header>
+  <a href="#" class="logo" data-marca="icone" aria-label="JA Brand"></a>
+  <nav class="mono"><a href="#cases">Cases</a><a href="#frentes">Frentes</a><a href="#contato">Contato</a></nav>
+  <a href="#contato" class="cta">Vamos conversar →</a>
+</header>
+
+<section class="hero">
+  <div class="fotos" id="fotos"></div>
+  <div class="grad"></div>
+  <div class="txt">
+    <span class="mono limao">JA Brand // Portfólio</span>
+    <h1 style="margin-top:14px"><span class="l"><span>Marcas relevantes</span></span><span class="l"><span>habitam todos os</span></span><span class="l"><span>pontos de <span class="limao">contato.</span></span></span></h1>
+    <div class="rod">
+      <span class="atual" id="atual"></span>
+      <div class="barras" id="barras"></div>
+    </div>
+  </div>
+</section>
+
+<section class="mosaico" id="cases">
+  <div class="cab">
+    <div><span class="mono" style="color:#8a8a8a">Portfólio por cliente</span><h2>Cases que já<br>estão na rua.</h2></div>
+    <div class="filtros" id="filtros"></div>
+  </div>
+  <div class="grade" id="grade"></div>
+</section>
+
+<div class="faixa-n">
+  <div><b id="n-casos">00</b><span>cases no portfólio</span></div>
+  <div><b>05</b><span>frentes integradas</span></div>
+  <div><b>360°</b><span>digital, impresso e evento</span></div>
+  <div><b>01</b><span>time só, do briefing à entrega</span></div>
+</div>
+
+<section class="frentes" id="frentes">
+  <span class="mono" style="color:#8a8a8a">O que a JA faz</span>
+  <h2>Cinco frentes. Uma marca só.</h2>
+  <div class="fr" id="fr"></div>
+</section>
+
+<section class="chamada" id="contato">
+  <div class="ic" data-marca="icone"></div>
+  <span class="mono" style="position:relative">Próximo case</span>
+  <h2>Sua marca em todos os pontos de contato.</h2>
+  <p>Conta o que você precisa — identidade, campanha, evento ou site. A gente responde com um caminho claro e prazo.</p>
+  <div class="acoes"><a class="cta" href="https://wa.me/" target="_blank" rel="noopener">Chamar no WhatsApp →</a><a class="cta sec" href="mailto:contato.jabrand@gmail.com">contato.jabrand@gmail.com</a></div>
+</section>
+<footer><div class="assin" data-marca="assinatura"></div><span class="mono">Design · Branding · Publicidade online & off · Eventos · Sites</span><span class="mono">© 2026 JA Brand</span></footer>
+
+<script src="marca/marca.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="dados.js"></script>
+<script src="casos.js"></script>
+<script src="caso.js"></script>
+<script>
+(function(){
+  document.querySelectorAll('[data-marca="icone"]').forEach(el=>el.innerHTML=window.JA_ICONE);
+  document.querySelectorAll('[data-marca="assinatura"]').forEach(el=>el.innerHTML=window.JA_ASSINATURA);
+  document.querySelectorAll('[data-marca] svg').forEach(s=>{s.style.width='100%';s.style.height='auto';s.style.display='block'});
+  const C=window.JA_CASOS, reduz=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ---- hero: alterna as capas dos cases em destaque ----
+  const dest=C.filter(c=>c.destaque).slice(0,6); const fotos=document.getElementById('fotos'), barras=document.getElementById('barras'), atual=document.getElementById('atual');
+  dest.forEach((c,i)=>{ const im=document.createElement('img'); im.src=c.capaLarga||c.capa; im.alt=c.cliente; im.style.objectPosition=c.foco||"50% 50%"; fotos.appendChild(im);
+    const b=document.createElement('i'); b.innerHTML='<b></b>'; b.onclick=()=>ir(i); barras.appendChild(b); });
+  let k=-1, tw=null;
+  function ir(i){ k=i; fotos.querySelectorAll('img').forEach((im,j)=>im.classList.toggle('on',j===k));
+    atual.innerHTML=`<b>${dest[k].cliente}</b> — ${dest[k].projeto} &nbsp; <a href="#" style="color:var(--limao)" id="ver">ver case →</a>`;
+    document.getElementById('ver').onclick=e=>{e.preventDefault();abrirCaso(C,C.indexOf(dest[k]),'grade')};
+    barras.querySelectorAll('i b').forEach((b,j)=>gsap.set(b,{scaleX:j<k?1:0}));
+    tw&&tw.kill(); tw=gsap.to(barras.children[k].firstChild,{scaleX:1,duration:reduz?60:5.5,ease:'none',onComplete:()=>ir((k+1)%dest.length)}); }
+  ir(0);
+
+  // ---- mosaico: tamanhos variados, cor da marca de cada cliente por cima ----
+  const grade=document.getElementById('grade'); const forma=['g','','t','','w','','','g','w','t','',''];
+  C.forEach((c,i)=>{ const t=document.createElement('figure'); t.className='tile '+(c.forma||forma[i%forma.length]); t.style.setProperty('--cor',c.cor); t.dataset.f=c.frentes.join('|');
+    t.innerHTML=`<img src="${c.capa}" alt="${c.cliente} — ${c.projeto}" loading="lazy" style="object-position:${c.foco||'50% 50%'}"><figcaption class="r"><div><b>${c.cliente}</b><small>${c.projeto}</small></div><span>${c.frentes[0]}</span></figcaption>`;
+    t.onclick=()=>abrirCaso(C,i,'grade'); grade.appendChild(t); });
+  document.getElementById('n-casos').textContent=String(C.length).padStart(2,'0');
+  const filtros=document.getElementById('filtros');
+  ['Todos',...new Set(C.flatMap(c=>c.frentes))].forEach((n,i)=>{const b=document.createElement('button');b.textContent=n;if(!i)b.className='on';
+    b.onclick=()=>{filtros.querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.add('on');grade.querySelectorAll('.tile').forEach(t=>t.classList.toggle('some',n!=='Todos'&&!t.dataset.f.split('|').includes(n)));ScrollTrigger.refresh()};
+    filtros.appendChild(b)});
+  document.getElementById('fr').innerHTML=window.JA_FRENTES.map((f,i)=>`<div><span class="n">0${i+1} // ${f.chave}</span><h3>${f.titulo}</h3><p>${f.escopo}</p></div>`).join('');
+
+  gsap.registerPlugin(ScrollTrigger);
+  let lenis=null;
+  if(!reduz){ lenis=new Lenis({lerp:.085}); window.__lenis=lenis; lenis.on('scroll',ScrollTrigger.update); gsap.ticker.add(t=>lenis.raf(t*1000)); gsap.ticker.lagSmoothing(0); }
+  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const id=a.getAttribute('href');if(id.length<2)return;e.preventDefault();lenis?lenis.scrollTo(id,{duration:1.6}):document.querySelector(id).scrollIntoView({behavior:'smooth'})}));
+  gsap.from('.hero h1 .l>span',{yPercent:110,duration:1.2,stagger:.09,ease:'expo.out',delay:.2});
+  gsap.from('.hero .rod',{opacity:0,y:20,duration:1,delay:.8});
+  if(!reduz){
+    gsap.to('.hero .txt',{yPercent:-20,opacity:.2,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+    grade.querySelectorAll('.tile').forEach(t=>{
+      gsap.fromTo(t,{clipPath:'inset(18% 0 0 0)',opacity:0},{clipPath:'inset(0% 0 0 0)',opacity:1,duration:1.1,ease:'expo.out',scrollTrigger:{trigger:t,start:'top 92%'}});
+      gsap.fromTo(t.querySelector('img'),{yPercent:-6,scale:1.12},{yPercent:6,scale:1.12,ease:'none',scrollTrigger:{trigger:t,start:'top bottom',end:'bottom top',scrub:true}});
+    });
+    gsap.from('.fr div',{opacity:0,y:30,stagger:.07,duration:.8,ease:'power3.out',scrollTrigger:{trigger:'.fr',start:'top 85%'}});
+    gsap.from('.chamada h2',{y:60,opacity:0,duration:1,ease:'expo.out',scrollTrigger:{trigger:'.chamada',start:'top 60%'}});
+  }
+})();
+</script>
+</body>
+</html>
