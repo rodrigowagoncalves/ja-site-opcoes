@@ -44,7 +44,7 @@ header.escuro .cta{background:var(--limao);color:var(--preto-abs)}
 .carta img{width:100%;height:100%;object-fit:cover}
 .carta::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,.35))}
 .hero .dica{position:absolute;right:clamp(16px,4vw,56px);top:13vh;z-index:5;text-align:right;color:var(--cinza-tec)}
-@media (max-width:820px){.hero h1.e{top:13vh}.hero h1.d{bottom:22vh}.hero .lado{display:none}.hero .dica{display:none}}
+@media (max-width:820px){.hero h1.e{top:12vh}.hero h1.d{bottom:9vh}.cena{top:6vh}.hero .lado{display:none}.hero .dica{display:none}}
 
 /* clientes */
 .clientes{border-top:1px solid var(--linha);border-bottom:1px solid var(--linha);overflow:hidden;padding:26px 0;background:#fff}
@@ -159,7 +159,7 @@ footer .mono{font-size:11px}
   const pecas=[]; C.forEach((c,i)=>pecas.push({src:c.capa,i}));
   for(let k=1;pecas.length<16;k++){ let add=false; C.forEach((c,i)=>{ if(c.pecas[k]&&pecas.length<16){pecas.push({src:c.pecas[k],i});add=true} }); if(!add)break; }
   const anel=document.getElementById('anel'); const N=pecas.length;
-  const larg=()=>Math.max(110,Math.min(165,innerWidth*.105)); const raio=()=>Math.max(220,Math.min(500,innerWidth*.3));
+  const cel=()=>innerWidth<820; const larg=()=>cel()?Math.round(innerWidth*.3):Math.max(110,Math.min(165,innerWidth*.105)); const raio=()=>cel()?Math.round(innerWidth*.56):Math.max(220,Math.min(500,innerWidth*.3));
   pecas.forEach((p,k)=>{ const d=document.createElement('div'); d.className='carta'; d.innerHTML=`<img src="${p.src}" alt="${C[p.i].cliente}">`; d.onclick=()=>abrirCaso(C,p.i,'rolo'); anel.appendChild(d); });
   function posicionar(){ const w=larg(), r=raio(); anel.style.setProperty('--w',w+'px'); anel.querySelectorAll('.carta').forEach((d,k)=>{ d.style.transform=`rotateY(${k*360/N}deg) translateZ(${r}px)` }); }
   posicionar(); addEventListener('resize',posicionar);
