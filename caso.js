@@ -27,9 +27,11 @@
   #caso .grade-caso figure{min-width:0;box-shadow:0 30px 60px rgba(0,0,0,.4)}
   #caso .grade-caso img{width:100%;height:auto;display:block}
   @media (max-width:820px){
-    #caso .info{position:relative;width:auto;padding:90px 16px 20px;top:auto;bottom:auto;display:block}
-    #caso .rolo{position:relative;padding:0 16px 40px;height:auto;gap:14px}
-    #caso .rolo figure{height:56vh}
+    #caso .info{position:relative;left:auto;width:auto;padding:90px 16px 20px;top:auto;bottom:auto;display:block}
+    #caso .rolo{position:relative;display:block;padding:0 16px 40px;overflow:visible;cursor:auto}
+    #caso .rolo figure{height:auto;margin-bottom:14px}
+    #caso .rolo figure img{width:100%;height:auto}
+    #caso .fundo{position:fixed}
     #caso .grade-caso{position:relative;padding:0 16px 40px;grid-template-columns:1fr}
     #caso{overflow-y:auto}
   }`;
@@ -42,7 +44,7 @@
   document.body.appendChild(el);
   let lista=[], idx=0, modo='rolo';
   function render(){
-    const c=lista[idx];
+    const c=lista[idx]; el.scrollTop=0;
     el.style.setProperty('--caso-cor',c.cor||'#121212');
     el.querySelector('.mono').textContent=`Case ${String(idx+1).padStart(2,'0')} / ${String(lista.length).padStart(2,'0')}`;
     el.querySelector('h2').textContent=c.cliente;
@@ -54,11 +56,13 @@
     corpo.innerHTML = modo==='rolo' ? `<div class="rolo">${figs}</div>` : `<div class="grade-caso">${figs}</div>`;
     const rolo=corpo.querySelector('.rolo');
     if(rolo){
+      if(innerWidth>=820){
       rolo.addEventListener('wheel',e=>{ if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){ rolo.scrollLeft+=e.deltaY; e.preventDefault(); } },{passive:false});
-      let arr=null; rolo.addEventListener('pointerdown',e=>{arr={x:e.clientX,s:rolo.scrollLeft};rolo.style.cursor='grabbing'});
+      }
+      let arr=null; rolo.addEventListener('pointerdown',e=>{ if(e.pointerType!=='mouse')return; arr={x:e.clientX,s:rolo.scrollLeft};rolo.style.cursor='grabbing'});
       addEventListener('pointerup',()=>{arr=null;rolo.style.cursor=''});
       rolo.addEventListener('pointermove',e=>{ if(arr) rolo.scrollLeft=arr.s-(e.clientX-arr.x) });
-      if(window.gsap) gsap.from(rolo.querySelectorAll('figure'),{x:120,opacity:0,stagger:.07,duration:1,ease:'expo.out'});
+      if(window.gsap) gsap.from(rolo.querySelectorAll('figure'),{x:innerWidth<820?0:120,y:innerWidth<820?40:0,opacity:0,stagger:.07,duration:1,ease:'expo.out'});
     } else if(window.gsap) gsap.from(corpo.querySelectorAll('figure'),{y:60,opacity:0,stagger:.05,duration:.9,ease:'expo.out'});
     if(window.gsap) gsap.from(el.querySelectorAll('.info > *'),{y:24,opacity:0,stagger:.05,duration:.8,ease:'expo.out'});
   }
